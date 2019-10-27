@@ -25,7 +25,11 @@
 	
 	import DiseaseCard from "@/components/DiseaseCard.vue";
 	
-	const diseaseListPromise = axios.get("/diseases.json");
+	const listURL = process.env.NODE_ENV === "production"
+		? "/bio-mm-project/diseases.json"
+		: "/diseases.json";
+	
+	const diseaseListPromise = axios.get(listURL);
 
 	export default Vue.extend({
 		name: 'app',
