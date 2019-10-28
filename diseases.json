@@ -1,10 +1,25 @@
 [
 	{
-		"name": "boobop",
-		"description": "TGT has un-bopped all the boos. The quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog."
+		"name": "Primary hyperxaluria type 1 (PH1)",
+		"description": "PH1 is an inherited metabolic disorder caused by a deficiency of a specific peroxisomal enzyme.\n\nThe only known curative treatment for PH1 is a combined liver and kidney transplant, which is limited by supply of donor organs and a lifelong requirement of immune system suppressors.\n\nEstève et al. provide a proof of concept that CRISPR/Cas9 can be used to efficiently generate the required enzyme.",
+		"ref": "https://www.sciencedirect.com/science/article/pii/S0006291X19314779#!"
+	},
+	{
+		"name": "Axonal degeneration",
+		"description": "Axonal degeneration often follows nerve injury, chemotherapy, and several neurological disorders as a product of raised levels of SARM1.\n\nGeisler et al. have developed methods to inhibit SARM1 in ways that can help to block axonal degeneration, with treated mice surviving an order of magnitude longer than untreated mice in experiments.",
+		"ref": "http://jem.rupress.org/content/216/2/294.abstract"
 	},
 	{
 		"name": "Carnivorous nerve worms",
 		"description": "TGT does nothing against the nerve worms. Nothing does anything against the nerve worms. The nerve worms will soon rule all, and to pretend otherwise is folly."
+	},
+	{
+		"name": "Glaucoma",
+		"description": "Glaucoma is a group of eye conditions that generally lead to blindness, often through dysregulation of the complement system.\n\nBosco et al. identify a specific step in the complement system in living organisms that may be targeted to protect retinal ganglion cells and delay later disease stages.",
+		"ref": "https://www.sciencedirect.com/science/article/pii/S1525001618304209?via%3Dihub"
+	},
+	{
+		"name": "More!",
+		"description": "More coming soon..."
 	}
 ]
