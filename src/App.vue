@@ -1,10 +1,18 @@
 <template>
 	<div id="app">
-		<h1>Targeted Gene Therapy</h1>
+		<div id="tgt-header">
+				
+			<h1 id="tgt-title">Targeted Gene Therapy</h1>
+			
+			<p id="tgt-dscr">
+				A significant number of diseases in humans are caused by adverse mutations in specific genes that prevent cells from carrying out their functions, or make them do so incorrectly.
+				
+				<br/><br/>
+				
+				In response, targeted gene therapies have been created to combat the source of such diseases, the mutated genes themselves, via restriction enzymes that cut away DNA from the specific diseased sites. This allows the cell's own repair functions to erase the mutation and replace it with the correct sequence.
+			</p>
 		
-		<p>
-			A significant number of diseases in humans are caused by adverse mutations in specific genes that prevent cells from carrying out their functions, or make them do so incorrectly. In response, targeted gene therapies have been created to combat the source of such diseases
-		</p>
+		</div>
 		
 		<hr/>
 		
@@ -59,11 +67,11 @@
 		-moz-osx-font-smoothing: grayscale;
 		text-align: center;
 		color: #2c3e50;
-		margin-top: 60px;
+		
+		margin: 2.5em 5em;
 	}
 	
 	html, body {
-		width: 100%;
 		min-height: 100%;
 	}
 	
@@ -71,9 +79,16 @@
 		background-color: #d7fcd4;
 	}
 	
+	#tgt-header {
+		margin: 0 15% 2em;
+	}
+	
 	#disease-card-list {
 		display: flex;
 		flex-flow: row wrap;
+		align-items: flex-start;
+		
+		margin-top: 2em;
 		
 		> * {
 			margin-right: 1.5em;
