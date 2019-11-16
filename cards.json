@@ -1,0 +1,37 @@
+{
+	"diseases": [
+		{
+			"name": "Primary hyperoxaluria type 1 (PH1)",
+			"description": "Primary hyperoxaluria is a condition which causes recurrent kidney and bladder stones, and often eventually leads to kidney failure. \n\nPH affects an estimated 1 in 58,000 people worldwide and has three types, with type 1 accounting for about 80% of cases. At its root, PH1 is caused by a deficiency of a specific peroxisomal enzyme. \n\nThe only known cure for PH1 is a combined liver and kidney transplant, though this is limited by supply of donor organs, and usually requires the individual take immune system suppressors for the rest of their life. \n\nEstève et al. have provided a proof of concept that CRISPR/Cas9 can be used to efficiently generate the required enzyme, opening the door to the possibility of a less invasive treatment in the future.",
+			"ref": "https://www.sciencedirect.com/science/article/pii/S0006291X19314779#! + https://ghr.nlm.nih.gov/condition/primary-hyperoxaluria"
+		},
+		{
+			"name": "Axonal degeneration",
+			"description": "Axonal degeneration is a prominent symptom of a wide array of nervous system injuries and diseases, such as Alzheimer's and Parkinson's, often because a specific gene gets activated, that gene being SARM1. \n\nGeisler et al. have developed methods to inhibit SARM1 in ways that can help to block axonal degeneration, with treated mice surviving an order of magnitude longer than untreated mice in experiments.",
+			"ref": "http://jem.rupress.org/content/216/2/294.abstract + https://www.sciencedirect.com/science/article/pii/B978012396460100007X"
+		},
+		{
+			"name": "Glaucoma",
+			"description": "Glaucoma is a group of eye conditions that affect the optic nerve, the pathway through which images go from your eye to your brain. \n\nGlaucoma generally leads to blindness, and is the second-most common cause of it in the United States.\n\nBosco et al. identify a specific step in the complement system (a specific part of the immune system) that may be targeted to protect retinal ganglion cells and delay later disease stages.",
+			"ref": "https://www.sciencedirect.com/science/article/pii/S1525001618304209?via%3Dihub + https://medlineplus.gov/ency/article/001620.htm"
+		}
+	],
+	"challenges": [
+		{
+			"name": "Delivery and activation",
+			"description": "Some gene therapies require delivery of the template gene to many cells, sometimes upwards of several million. \n\nNot only that, but they must be the correct cells, in the correct tissue; delivery to the wrong cells ends up with the treatment not fulfilling its original purpose, and possibly causing unwanted effects in mistargeted cells. \n\nEven if cells are correctly targeted and the genes correctly replaced, we have to make sure it gets activated, and stays that way; cells have a habit of shutting down genes that are too active or behave unusally."
+		},
+		{
+			"name": "Immune response",
+			"description": "Our immune systems are really, really good at fighting off intruders, including the vehicles of TGT. Treatments must make sure to avoid triggering the immune system. \n\nThere are a few ways to go about this, including removing cells from the patient's body for treatment, giving the patient immune system suppressors, or using as low a dose as possible."
+		},
+		{
+			"name": "Targeting",
+			"description": "Targeting specific sites on a genome is a non-trivial endeavor; genomes are huge, and developing a restriction enzyme that only affects a single part of it is tremendously difficult."
+		},
+		{
+			"name": "Commercial viability",
+			"description": "Many of the best candidates for TGT are extremely rare, some affecting only one person out of a million. \n\nThough TGT could be life-saving for these people, the high cost of development compared to the small market makes it difficult to secure funding for research into these rare conditions. \n\nEven when treatments are successfully funded and developed, they may be so expensive that most patients could never afford them."
+		}
+	]
+}
