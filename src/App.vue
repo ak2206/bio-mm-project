@@ -5,57 +5,76 @@
 			<h1 id="tgt-title">Targeted Gene Therapy</h1>
 			
 			<p id="tgt-dscr">
-				A significant number of diseases in humans are caused by adverse mutations in specific genes that prevent cells from carrying out their functions, or make them do so incorrectly.
+				Many diseases in humans are caused by mutations in specific genes which make cells perform their functions incorrectly, or even prevent them from carrying out their functions entirely. Targeted gene therapies have been created to treat these diseases by going to the root cause, and changing those genes back to what they should be.
 				
 				<br/><br/>
 				
-				In response, targeted gene therapies have been created to combat the source of such diseases, the mutated genes themselves, via restriction enzymes that cut away DNA from the specific diseased sites. This allows the cell's own repair functions to erase the mutation and replace it with the correct sequence.
+				TGT gives cells two essential tools to help correct themselves, restriction enzymes and DNA templates. Restriction enzymes are designed to cut away a very specific piece of DNA (the mutated genes), allowing the cell's own repair functions to erase the mutation and work off the DNA template to replace it with the correct sequence.
 			</p>
 		
 		</div>
 		
 		<hr/>
 		
-		<div id="disease-card-list">
-			<disease-card
+		<h1>Diseases</h1>
+		
+		<div class="info-card-list">
+			<info-card
 				v-for="disease in diseaseList"
 				:key="disease.name"
-				:diseaseName="disease.name"
-				:diseaseDescription="disease.description"
+				:name="disease.name"
+				:description="disease.description"
 			/>
 		</div>
+		
+		<hr/>
+		
+		<h1>Challenges</h1>
+		
+		<div class="info-card-list">
+			<info-card
+				v-for="challenge in challengeList"
+				:key="challenge.name"
+				:name="challenge.name"
+				:description="challenge.description"
+			/>
+		</div>
+		
+		<reference-block/>
 	</div>
 </template>
 
 <script lang="ts">
 	import axios from "axios";
-	import Vue from 'vue';
+	import Vue from "vue";
 	
-	import DiseaseCard from "@/components/DiseaseCard.vue";
+	import InfoCard from "@/components/InfoCard.vue";
+	import ReferenceBlock from "@/components/ReferenceBlock.vue";
 	
-	const listURL = process.env.NODE_ENV === "production"
-		? "/bio-mm-project/diseases.json"
-		: "/diseases.json";
+	const listURL = "cards.json";
 	
 	const diseaseListPromise = axios.get(listURL);
 
 	export default Vue.extend({
-		name: 'app',
+		name: "app",
 		
 		components: {
-			"DiseaseCard": DiseaseCard,
+			"InfoCard": InfoCard,
+			"ReferenceBlock": ReferenceBlock,
 		},
 		
 		data() {
 			return {
 				diseaseList: [],
+				challengeList: [],
 			};
 		},
 		
 		mounted() {
 			diseaseListPromise.then((response) => {
-				this.diseaseList = response.data;
-			})
+				this.diseaseList = response.data.diseases;
+				this.challengeList = response.data.challenges;
+			});
 		},
 	});
 </script>
@@ -77,13 +96,14 @@
 	
 	body {
 		background-color: #d7fcd4;
+		overflow-y: scroll;
 	}
 	
 	#tgt-header {
 		margin: 0 15% 2em;
 	}
 	
-	#disease-card-list {
+	.info-card-list {
 		display: flex;
 		flex-flow: row wrap;
 		align-items: flex-start;

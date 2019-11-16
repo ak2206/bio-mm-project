@@ -1,7 +1,7 @@
 <template>
-	<div class="disease-card">
-		<span class="disease-card-header">
-			<h2>{{ diseaseName }}</h2>
+	<div class="info-card">
+		<span class="info-card-header">
+			<h2>{{ name }}</h2>
 			<span
 				class="expand-arrow"
 				@click="expanded = !expanded"
@@ -12,17 +12,15 @@
 		
 		<span
 			v-if="ttsEnabled"
-			class="disease-speaker"
+			class="speaker"
 			@click="speak()"
 				>
 				
-			&#x1F50A;
+			&#x1F50A; <!-- Speaker character -->
 			
 		</span>
 		
-		<p v-show="expanded" class="disease-description">
-			{{ diseaseDescription }}
-		</p>
+		<p v-show="expanded" class="description">{{ description }}</p>
 	</div>
 </template>
 
@@ -31,15 +29,15 @@
 
 	export default Vue.extend({
 		props: {
-			diseaseName: {
+			name: {
 				type: String,
 				required: true,
 			},
 			
-			diseaseDescription: {
+			description: {
 				type: String,
 				required: true,
-			}
+			},
 		},
 		
 		data() {
@@ -51,22 +49,36 @@
 		
 		methods: {
 			speak() {
+				// In Chrome, speech synthesis automatically stops after 15
+				//   seconds, which causes longer texts to get cut off.
+				// To get around this, regularly force it to resume.
+				let resumeTimeout: number;
+				function resumeSpeechForever() {
+					window.speechSynthesis.resume();
+					resumeTimeout = setTimeout(resumeSpeechForever, 500);
+				}
+				
 				if (window.speechSynthesis.speaking) {
 					window.speechSynthesis.cancel();
-				} else {
-					const textToSpeak = this.diseaseDescription;
 					
-					window.speechSynthesis.speak(
-						new SpeechSynthesisUtterance(textToSpeak)
-					);
+				} else {
+					const textToSpeak = this.description;
+					const utterance = new SpeechSynthesisUtterance(textToSpeak);
+					
+					utterance.onstart = resumeSpeechForever;
+					utterance.onend = () => {
+						clearTimeout(resumeTimeout);
+					};
+					
+					window.speechSynthesis.speak(utterance);
 				}
-			}
-		}
+			},
+		},
 	});
 </script>
 
-<style lang="scss">
-	.disease-card {
+<style lang="scss" scoped>
+	.info-card {
 		width: 35ch;
 		background-color: #b6cca1;
 		
@@ -83,25 +95,25 @@
 		grid-template-areas: auto 1fr;
 	}
 	
-	.disease-card-header {
+	.info-card-header {
 		> h2 {
 			display: inline;
 		}
 		grid-area: header
 	}
 	
-	.expand-arrow, .disease-speaker {
+	.expand-arrow, .speaker {
 		cursor: pointer;
 	}
 	
-	.disease-speaker {
+	.speaker {
 		display: flex;
 		
 		grid-area: speaker;
 		font-size: x-large;
 	}
 	
-	.disease-description {
+	.description {
 		white-space: pre-wrap;
 		text-align: left;
 		
